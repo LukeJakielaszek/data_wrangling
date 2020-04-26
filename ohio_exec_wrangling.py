@@ -90,6 +90,7 @@ def ohio_exec():
             date = date.get_attribute('innerHTML')
             date = bs.BeautifulSoup(date,'html.parser').text.strip()
 
+            date = date.upper()
             # display to console
             print()
             print(title)
