@@ -76,31 +76,45 @@ def michigan_alt():
     for order in table.find_all("tr"):
         title, desc = order.find_all("td")
         link = "http://www.legislature.mi.gov/documents/" + title.find("a")['href']
-
+        
         title = title.text.replace("E.O. NO.", "").strip()
-
+            
         summary = desc.text.strip()
-
+        
+        year, issue = title.split("-")
+        
         print()
+        if(int(issue) < 10):
+            title = year + "-0" + issue
+        else:
+            title = year + "-" + issue
+            
+        summary = summary.strip()
         print(title)
         print(link)
         print(summary)
 
-        # download the pdf to local system
-        download_page(link, "tmp/tmp.pdf")
-
-        # convert the pdf to a png
-        path = pdf_to_png("tmp/tmp.pdf")
-
-        # extract the date from pdf using OCR
-        date = get_text(path)
-        
-        print(date)
-
         temp_dict = {}
         temp_dict["link"] = link
         temp_dict["summary"] = summary
-        temp_dict["date"] = date
+        temp_dict["date"] = "N/A" 
+
+        try:
+            # download the pdf to local system
+            download_page(link, "tmp/tmp.pdf")
+
+            # convert the pdf to a png
+            path = pdf_to_png("tmp/tmp.pdf")
+
+            # extract the date from pdf using OCR
+            date = get_text(path)
+        
+            print(date)
+            
+            temp_dict["date"] = date
+            
+        except:
+            print("ERROR: Skipping " + str(title))
 
         orders[title] = temp_dict
 
@@ -122,7 +136,7 @@ def get_text(path):
 
     # parse the date
     output = output[index+6:]
-    output = output.split(" ")
+    output = output.split()
     date = output[0] + " " + output[1] + " " + output[2]
     date = date.upper().strip()
 
@@ -134,7 +148,7 @@ def pdf_to_png(path):
     pages = 0
 
     # download all pages
-    with IMG(filename=path, resolution=500) as img:
+    with IMG(filename=path, resolution=300) as img:
 
         print('width =', img.width)
         print('height =', img.height)
@@ -191,7 +205,7 @@ def michigan_exec(orders):
             print(title, "| COVID:", for_covid, " | rescinded:", rescinded,
                   " | soe:", state_of_emergency)
 
-            link = ""
+            title = title.strip()
             summary = ""
             date = ""
             if title in orders:
@@ -199,6 +213,7 @@ def michigan_exec(orders):
                 summary = temp_dict["summary"]
                 date = temp_dict["date"]
             else:
+                print("Not in orders [" + str(title) + "]")
                 summary = "N/A"
                 date = "N/A"
 
@@ -208,4 +223,6 @@ def michigan_exec(orders):
 if __name__ == "__main__":
     orders = michigan_alt()
 
+    print(orders)
+    
     michigan_exec(orders)
