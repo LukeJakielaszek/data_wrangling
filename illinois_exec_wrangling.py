@@ -17,7 +17,7 @@ import csv
 # state executive orders
 illinois_exec_link = "https://www2.illinois.gov/sites/coronavirus/Resources/Pages/ExecutiveOrders.aspx"
 
-out_filename = "illinois_exec.csv"
+out_filename = "data/illinois_exec.csv"
 
 def chrome_instance(webpage):
     # create a chrome instance
@@ -44,7 +44,7 @@ def illinois_exec():
 
     with open(out_filename, "w") as ofile:
         writer = csv.writer(ofile)
-        writer.writerow(["Executive Order", "Brief Summary", "Long Summary", "Issued Date", "Filed Date"])
+        writer.writerow(["Executive Order", "Brief Summary", "Long Summary", "Issued Date", "Filed Date", "Link"])
         for i,li in enumerate(soup.find_all("li")):
             # get each executive order by section
             title_p, summary_p, date_p = li.find_all("p")
@@ -104,7 +104,7 @@ def illinois_exec():
             print(filed)
 
             # write the data to csv
-            writer.writerow([title, brief_sum, long_sum, issued, filed])
+            writer.writerow([title, brief_sum, long_sum, issued, filed, link])
             
 if __name__ == "__main__":
     illinois_exec()
