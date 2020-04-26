@@ -30,6 +30,7 @@ def chrome_instance(webpage):
     driver.execute_script("return document.documentElement.outerHTML")
 
     return driver
+
 def illinois_exec():
     driver = chrome_instance(illinois_exec_link)
     
@@ -82,13 +83,7 @@ def illinois_exec():
             driver.execute_script("return document.documentElement.outerHTML")
 
             cur_page = driver.page_source
-            # get the text section
-            #elem = driver.find_elements_by_class_name('col-sm-12')[5]
-            
-            # get only the text section
-            #cur_page = elem.get_attribute('innerHTML')
 
-            #print(cur_page)
             # parse into a bs object
             cur_page = bs.BeautifulSoup(cur_page,'html.parser')
                 
