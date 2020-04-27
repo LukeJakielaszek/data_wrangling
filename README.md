@@ -45,7 +45,7 @@ Link - A url to the full HTML version of the order<br/>
 Information was obtained by scraping all cards on the page "https://governor.ohio.gov/wps/portal/gov/governor/media/executive-orders/" to get a listing of all orders and summary information. The link that each card points to was also scraped to grab the date information. <br/>
 
 ### Daily Counts
-
+The following information regarding Ohio Daily Covid-19 counts was obtained.<br/>
 County - County of record <br/>
 Sex - sex of record <br/>
 Age Range - Range of ages for the record <br/>
@@ -80,6 +80,25 @@ Information was obtained by scraping the page "https://www.michigan.gov/whitmer/
 To obtain the date of the order, I used optical character recognition on the final page of the scanned PDF files and extracted the dates. Finally, I went through at the end and looked for non-date extracted text, quickly fixing them manually. As this I only scraped this secondary site for the year of 2020, all orders from 2019 in my final dataset lack a summary and date.<br/>
 
 ### Daily Counts
+The following information regarding Michigan Daily Covid-19 counts was obtained.<br/>
+Date - The date of the record<br/>
+Region 1 - Confirmed Covid-19 case counts for region 1 of michigan<br/>
+Region 2 North - Confirmed Covid-19 case counts for region 2 North of michigan<br/>
+Region 2 South - Confirmed Covid-19 case counts for region 2 South of michigan<br/>
+Region 3 - Confirmed Covid-19 case counts for region 3 of michigan<br/>
+Region 5 - Confirmed Covid-19 case counts for region 5 of michigan<br/>
+Region 6 - Confirmed Covid-19 case counts for region 6 of michigan<br/>
+Region 7 - Confirmed Covid-19 case counts for region 7 of michigan<br/>
+Region 8 - Confirmed Covid-19 case counts for region 8 of michigan<br/>
+Unknown - Confirmed Covid-19 case counts for unknown regions of michigan<br/>
+Grand Total - Confirmed Covid-19 case counts for michigan<br/>
+<br/>
+Note: Michigan emergency preparedness regions are an aggregate of counties. They can be seen graphically in the image below:<br/>
+
+![Michigan Regions](https://github.com/LukeJakielaszek/data_wrangling/blob/master/Emergency_Preparedness_Regions_Michigan.PNG)
+<br/>
+
+Information was obtained by scraping the daily counts subpage of "https://www.michigan.gov/coronavirus/0,9753,7-406-98163_98173---,00.html". The Grand Total row at the bottom of this table was removed as it does not have date information.
 
 ## sources
 ### Illinois
@@ -88,7 +107,6 @@ https://www2.illinois.gov/sites/coronavirus/Resources/Pages/ExecutiveOrders.aspx
 
 #### Daily Counts
 https://dph.illinois.gov/covid19/covid19-statistics
-
 
 ### Ohio 
 
@@ -104,5 +122,5 @@ https://governor.ohio.gov/wps/portal/gov/governor/media/executive-orders/
 https://www.michigan.gov/coronavirus/0,9753,7-406-98163_98173---,00.html
 
 #### Executive Orders
-https://www.michigan.gov/whitmer/0,9309,7-387-90499_90705---,00.html
+https://www.michigan.gov/whitmer/0,9309,7-387-90499_90705---,00.html<br/>
 http://www.legislature.mi.gov/(S(d3b0ixy34nwgszptpzq2e5ed))/mileg.aspx?page=executiveorders
