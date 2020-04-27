@@ -47,7 +47,6 @@ def driver_wait(driver, class_a):
 
     return element
 
-
 # scrape the page contents for ohio executive orders
 def ohio_exec():
     # open the browser
