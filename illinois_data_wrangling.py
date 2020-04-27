@@ -53,7 +53,15 @@ def illinois_data():
         # loop over each date
         for obj in county_data:
             date = obj['testDate']
+            month,day,year = date.split("/")
+            if(month == "4"):
+                month = "APRIL"
+            elif(month == "3"):
+                month = "MARCH"
 
+            date = month + " " + day + ", " + year
+            
+            print(date)
             # loop over each county
             for county_data in obj['values']:
                 # extract the data
@@ -64,13 +72,13 @@ def illinois_data():
                 deaths = county_data["deaths"]
 
                 # fill bad lats and lon
-                lat = "N/A"
-                lon = "N/A"
+                lat = ""
+                lon = ""
                 try:
                     lat = county_data["lat"]
                     lon = county_data["lon"]
                 except:
-                    print("ERROR: Skipping " + county + " coords")
+                    pass
 
                 # write the data to csv
                 writer.writerow([date, county, confirmed_cases, total_tested,

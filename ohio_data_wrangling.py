@@ -36,10 +36,10 @@ def ohio_data():
 
     # replace all null with N/A
     df = pd.read_csv(temp_file_name)
-    df = df.fillna("N/A")
+    #df = df.fillna("N/A")
 
     # write it to csv
-    df.to_csv(out_filename)
+    df.to_csv(out_filename, index=False)
 
 if __name__ == "__main__":
     ohio_data()

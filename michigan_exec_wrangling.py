@@ -97,7 +97,7 @@ def michigan_alt():
         temp_dict = {}
         temp_dict["link"] = link
         temp_dict["summary"] = summary
-        temp_dict["date"] = "N/A" 
+        temp_dict["date"] = "" 
 
         try:
             # download the pdf to local system
@@ -214,8 +214,8 @@ def michigan_exec(orders):
                 date = temp_dict["date"]
             else:
                 print("Not in orders [" + str(title) + "]")
-                summary = "N/A"
-                date = "N/A"
+                summary = ""
+                date = ""
 
             # write the data to csv
             writer.writerow([title, summary, date, link, for_covid, rescinded, state_of_emergency])
