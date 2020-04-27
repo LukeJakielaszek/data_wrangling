@@ -45,6 +45,19 @@ Link - A url to the full HTML version of the order<br/>
 Information was obtained by scraping all cards on the page "https://governor.ohio.gov/wps/portal/gov/governor/media/executive-orders/" to get a listing of all orders and summary information. The link that each card points to was also scraped to grab the date information. <br/>
 
 ### Daily Counts
+County - County of record
+Sex - sex of record
+Age Range - Range of ages for the record
+Onset Date - Date of Covid-19 onset for the record
+Date of Death - The date that individuals died (this will be empty unless the death count is > 0
+Admission Date - The date that individuals were admitted to the hospital (this will be empty unless the Hospitalized count > 0)
+Case Count - The number of cases for the county / sex / age range on a single day
+Death Count - The number of deaths for the county / sex / age range from the origional case count
+Hospitalized Count - The number of hospitalized individuals for the county / sex / age range from the origional case count
+
+Note: All data is dependent on the Case Count. That is the death count is the number of deaths from the case count per row in the table. Similarly, the hospitalized count is the number of hospitalized individuals from the case count per row in the table. The only way death count or hospitalized count can be greater than 1 is if two of the origional people were hospitalized or died on the same day. Otherwise, they are seperated into another entry in the table. Please view the sample below:
+
+![Ohio Data Explained]("./ohio_data_explained.PNG")
 
 ## Michigan
 ### Executive Orders
