@@ -75,7 +75,9 @@ Rescinded - A boolean if the order had been rescinded
 State of Emergency - A boolean stating if the order declared a state of emergency
 
 <br/>
-Information was obtained by scraping the page "https://www.michigan.gov/whitmer/0,9309,7-387-90499_90705---,00.html" for the names of orders, covid relatedness, if it was rescinded, and whether it declared a state of emergency. Unfortunately, the dates of the orders and a short summary of each order was typically unavailable on the governors website. Therefore, the secondary source "http://www.legislature.mi.gov/(S(ryjl4kptgnu3sbx2uogeebw0))/mileg.aspx?page=executiveorders" was scraped for the year of 2020 to obtain summary information and dates for each order. To obtain the date of the order, I used optical character recognition on the final page of the scanned PDF files and extracted the dates. Finally, I went through at the end and looked for non-date extracted text, quickly fixing them manually. As this I only scraped this secondary site for the year of 2020, all orders from 2019 in my final dataset lack a summary and date.
+Information was obtained by scraping the page "https://www.michigan.gov/whitmer/0,9309,7-387-90499_90705---,00.html" for the names of orders, covid relatedness, if it was rescinded, and whether it declared a state of emergency. Unfortunately, the dates of the orders and a short summary of each order was typically unavailable on the governors website. Therefore, the secondary source "http://www.legislature.mi.gov/(S(ryjl4kptgnu3sbx2uogeebw0))/mileg.aspx?page=executiveorders" was scraped for the year of 2020 to obtain summary information and dates for each order.<br/>
+<br/>
+To obtain the date of the order, I used optical character recognition on the final page of the scanned PDF files and extracted the dates. Finally, I went through at the end and looked for non-date extracted text, quickly fixing them manually. As this I only scraped this secondary site for the year of 2020, all orders from 2019 in my final dataset lack a summary and date.<br/>
 
 ### Daily Counts
 
