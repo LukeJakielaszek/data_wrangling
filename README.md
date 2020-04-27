@@ -8,6 +8,7 @@ Data was scraped from a total of 7 sources (2 for Illinois, 2 for Ohio, and 2 fo
 
 <br/>
 Total Entries : 13634
+<br/>
 Total CSV Files : 6
 <br/>
 <br/>
