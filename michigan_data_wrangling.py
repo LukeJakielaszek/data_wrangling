@@ -21,7 +21,7 @@ import time
 michigan_data_link = "https://www.michigan.gov/coronavirus/0,9753,7-406-98163_98173---,00.html"
 
 # output file
-out_filename = "data/ohio_data.csv"
+out_filename = "data/michigan_data.csv"
 
 
 # get a selenium chrome instance
