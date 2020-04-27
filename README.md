@@ -35,6 +35,14 @@ Information was obtained by catching the JSON data transfer over the network on 
 
 ## Ohio
 ### Executive Orders
+The following information regarding Ohio executive orders was obtained:<br/>
+<br/>
+Executive Order - The name of the order<br/>
+Summary - A description (around a sentence) describing the order<br/>
+Date - The date the order was signed by the governor of Ohio<br/>
+Link - A url to the full HTML version of the order<br/>
+<br/>
+Information was obtained by scraping all cards on the page "https://governor.ohio.gov/wps/portal/gov/governor/media/executive-orders/" to get a listing of all orders and summary information. The link that each card points to was also scraped to grab the date information. <br/>
 
 ### Daily Counts
 
