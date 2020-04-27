@@ -47,37 +47,42 @@ def illinois_data():
     # prepare output file
     with open(out_filename, "w") as ofile:
         writer = csv.writer(ofile)
-        writer.writerow(["Date", "County", "Confirmed Cases", "Total Tested", "Negative", "Deaths"
-                         , "Lat", "Lon"])
+        writer.writerow(["Date", "County", "Confirmed Cases", "Total Tested", "Negative", "Deaths", "Lat", "Lon"])
 
         # loop over each date
         for obj in county_data:
+            # get the date
             date = obj['testDate']
+
+            # Convert the date to our defined standard
             month,day,year = date.split("/")
             if(month == "4"):
                 month = "APRIL"
             elif(month == "3"):
                 month = "MARCH"
 
+            # reconstruct the date
             date = month + " " + day + ", " + year
             
             print(date)
+            
             # loop over each county
             for county_data in obj['values']:
-                # extract the data
+                # extract the data from the JSON object
                 county = county_data["County"]
                 confirmed_cases = county_data["confirmed_cases"]
                 total_tested = county_data["total_tested"]
                 negative = county_data["negative"]
                 deaths = county_data["deaths"]
 
-                # fill bad lats and lon
+                # Attempt to get the coords
                 lat = ""
                 lon = ""
                 try:
                     lat = county_data["lat"]
                     lon = county_data["lon"]
                 except:
+                    # leave it null if the coords are not supplied
                     pass
 
                 # write the data to csv

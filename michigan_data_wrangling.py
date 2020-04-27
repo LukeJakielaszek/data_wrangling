@@ -53,7 +53,7 @@ def michigan_data():
     # open the browser
     driver = chrome_instance(michigan_data_link)
 
-    # find daily counts
+    # find and click daily counts
     driver.find_element_by_xpath('//*[@id="comp_115181"]/ul/li[1]/span/span/span[2]/ul/li[1]/h4/strong/a').click()
 
     # wait for javascript
@@ -70,27 +70,28 @@ def michigan_data():
     # prepare output file
     with open(out_filename, "w") as ofile:
         writer = csv.writer(ofile)
-        writer.writerow(["Date","Region 1","Region 2 North","Region 2 South","Region 3",
-                         "Region 5","Region 6","Region 7","Region 8","Unknown","Grand Total"])
+        writer.writerow(["Date","Region 1","Region 2 North","Region 2 South","Region 3", "Region 5","Region 6","Region 7","Region 8","Unknown","Grand Total"])
 
         # for each row
         for i, tr in enumerate(rows):
-            # skip the totals
+            # skip the totals (last row)
             if(i == len(rows)-1):
                 break
 
             # for each col
             cols = tr.find_all("td")
             for i,col in enumerate(cols):
+                # get the text
                 col = col.text.strip()
 
                 # if a value is not entered, it should be 0
                 if(col == ""):
                     col = "0"
-                
+
+                # save the parsed entry value
                 cols[i] = col
 
-            # get each component
+            # get each entry for the row
             date, r1, r2_north, r2_south, r3, r5, r6, r7, r8, unknown, gt = cols
 
             # format the date consistently with our other data
@@ -100,6 +101,7 @@ def michigan_data():
             elif(month == "Apr"):
                 month = "APRIL"
 
+            # reconstruct the date
             date = month + " " + day + ", 2020"
             
             # write the data to csv

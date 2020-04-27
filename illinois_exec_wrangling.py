@@ -56,6 +56,8 @@ def illinois_exec():
             
             # get summaries of executive order
             summary_p = summary_p.text
+
+            # try to parse the summaries
             brief_sum = ""
             long_sum = ""
             try:
@@ -67,7 +69,8 @@ def illinois_exec():
                     if i != 0:
                         long_sum += "-"
                     long_sum += sum_a
-                
+
+            # remove the whitespace
             brief_sum = brief_sum.strip()
             long_sum = long_sum.strip()
             
@@ -76,12 +79,13 @@ def illinois_exec():
             print(long_sum)
             
             # get the more detailed page
-            link = "https://www2.illinois.gov" + date_p.find("a")["href"]                
+            link = "https://www2.illinois.gov" + date_p.find("a")["href"]       
             driver.get(link)
             
             # wait for javascript
             driver.execute_script("return document.documentElement.outerHTML")
 
+            # get the source html
             cur_page = driver.page_source
 
             # parse into a bs object
@@ -92,6 +96,8 @@ def illinois_exec():
 
             # get both the issued and filing dates
             issued, filed = dates.split("<BR/>")
+
+            # remove the non-date text
             issued = issued.replace("ISSUED BY THE GOVERNOR", "").strip()
             filed = filed.replace("FILED BY THE SECRETARY OF STATE", "").strip()
                 
