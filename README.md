@@ -1,5 +1,7 @@
 # data_wrangling
 
+I suggest that this is viewed through github rather than a text editor for sake of formatting and image display.
+
 ## Overview
 
 Data was scraped from a total of 7 sources (2 for Illinois, 2 for Ohio, and 2 for Michigan). Each state has a csv file with scraped executive order information and another csv with general Covid-19 related counts. Unlisted / unobtainable data for an entry is left empty (null) in a CSV cell as not every source has complete information for each day. Dates are all caps in the form of "MONTH day, year". All csv are stored in the data directory. CSVs corresponding to executive orders are denoted with _exec.csv and CSVs corresponding to general counts are denoted with _data.csv. All scripts can be run together from the data_wrangling directory using the command "sh run_all.sh". Each script can also be run individually using "python3 script_name.py"<br/>
