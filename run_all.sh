@@ -1,0 +1,6 @@
+python3 michigan_exec_wrangling.py
+python3 illinois_exec_wrangling.py
+python3 ohio_exec_wrangling.py
+python3 michigan_data_wrangling.py
+python3 illinois_data_wrangling.py
+python3 ohio_data_wrangling.py
