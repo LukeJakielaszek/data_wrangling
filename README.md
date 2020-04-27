@@ -1,5 +1,24 @@
 # data_wrangling
 
+## Overview
+
+Data was scraped from a total of 7 sources (2 for Illinois, 2 for Ohio, and 2 for Michigan). Each state has a csv file with scraped executive order information and another csv with general Covid-19 related counts. Unlisted / unobtainable data for an entry is left empty (null) in a CSV cell as not every source has complete information for each day. Dates are all caps in the form of "MONTH day, year"
+
+## Illinois
+### Executive Orders
+
+### Daily Counts
+
+## Ohio
+### Executive Orders
+
+### Daily Counts
+
+## Michigan
+### Executive Orders
+
+### Daily Counts
+
 ## sources
 ### Illinois
 #### Executive Orders
