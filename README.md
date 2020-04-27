@@ -57,7 +57,7 @@ Hospitalized Count - The number of hospitalized individuals for the county / sex
 
 Note: All data is dependent on the Case Count. That is the death count is the number of deaths from the case count per row in the table. Similarly, the hospitalized count is the number of hospitalized individuals from the case count per row in the table. The only way death count or hospitalized count can be greater than 1 is if two of the origional people were hospitalized or died on the same day. Otherwise, they are seperated into another entry in the table. Please view the sample below:
 
-![Ohio Data Explained]("./ohio_data_explained.PNG")
+![Ohio Data Explained](https://github.com/LukeJakielaszek/data_wrangling/blob/master/ohio_data_explained.PNG)
 
 ## Michigan
 ### Executive Orders
